@@ -78,6 +78,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E8058E028005EA700CBB170 /*  Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
+				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
+			);
+			path = " Delegate";
+			sourceTree = "<group>";
+		};
+		5E8058E1280062C900CBB170 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
+				5E8058E22800630100CBB170 /* Launch */,
+				BFD945EC244DC5EB0012785A /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		5E8058E22800630100CBB170 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		5E8058E42800647700CBB170 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5E8058E5280064A500CBB170 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5E8058E6280064FD00CBB170 /* Search */,
+				5E8058E72800651500CBB170 /* Detail */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5E8058E6280064FD00CBB170 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E2244DC5E80012785A /* ViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		5E8058E72800651500CBB170 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A658C244F2A3B00280FA6 /* ViewController2.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		BFD945D2244DC5E80012785A = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +160,11 @@
 		BFD945DD244DC5E80012785A /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
-				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
-				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
-				BFD945E2244DC5E80012785A /* ViewController.swift */,
-				BF0A658C244F2A3B00280FA6 /* ViewController2.swift */,
+				5E8058E028005EA700CBB170 /*  Delegate */,
+				5E8058E1280062C900CBB170 /* Support */,
+				5E8058E42800647700CBB170 /* Model */,
+				5E8058E5280064A500CBB170 /* View */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
-				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
-				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
-				BFD945EC244DC5EB0012785A /* Info.plist */,
 			);
 			path = iOSEngineerCodeCheck;
 			sourceTree = "<group>";
@@ -442,7 +498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = iOSEngineerCodeCheck/Info.plist;
+				INFOPLIST_FILE = iOSEngineerCodeCheck/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,7 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = iOSEngineerCodeCheck/Info.plist;
+				INFOPLIST_FILE = iOSEngineerCodeCheck/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
