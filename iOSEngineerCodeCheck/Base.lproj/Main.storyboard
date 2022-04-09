@@ -137,13 +137,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="J6o-vL-S1z"/>
                     <connections>
-                        <outlet property="IsssLbl" destination="dzg-K8-h2L" id="L0v-sy-cD4"/>
                         <outlet property="forksLabel" destination="ZMv-4f-X2V" id="i5c-Z0-dVn"/>
                         <outlet property="issuesLabel" destination="dzg-K8-h2L" id="QOp-ru-S1R"/>
                         <outlet property="languageLabel" destination="s3M-QO-Kom" id="DGu-nC-7Af"/>
                         <outlet property="repositoryImageView" destination="Iim-eb-8Ad" id="QsZ-9c-HWf"/>
                         <outlet property="starsLabel" destination="0WZ-UA-R8O" id="woK-Yq-8Ov"/>
-                        <outlet property="titleLabel" destination="4q1-pG-WSB" id="exW-W9-z4N"/>
+                        <outlet property="titleLabel" destination="4q1-pG-WSB" id="n7E-KL-3Hz"/>
                         <outlet property="watchersLabel" destination="lQC-lo-IqN" id="AyC-kl-4nU"/>
                     </connections>
                 </viewController>

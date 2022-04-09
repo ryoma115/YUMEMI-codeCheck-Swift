@@ -8,14 +8,18 @@
 
 import UIKit
 
-class SearchViewController: UITableViewController, UISearchBarDelegate {
+final class SearchViewController: UITableViewController {
 
-    // MARK: IBOutlet
+// MARK: IBOutlet
     
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchBar: UISearchBar! {
+        didSet{
+            searchBar.text = "GitHubのリポジトリを検索できるよー"
+            searchBar.delegate = self
+        }
+    }
     
-    var repositoryList: [[String: Any]]=[]
-    
+    var repositoryList: [[String: Any]] = []
     var task: URLSessionTask?
     var searchWord: String!
     var baseAPIUrl: String!
@@ -24,22 +28,44 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        searchBar.text = "GitHubのリポジトリを検索できるよー"
-        searchBar.delegate = self
     }
     
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // ↓こうすれば初期のテキストを消せる
-        searchBar.text = ""
-        return true
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Detail" {
+            let detailDt = segue.destination as! DetailViewController
+            detailDt.searchVC = self
+        }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
+// MARK: tableView
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repositoryList.count
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let assignedRepository = repositoryList[indexPath.row]
+        cell.textLabel?.text = assignedRepository["full_name"] as? String ?? ""
+        cell.detailTextLabel?.text = assignedRepository["language"] as? String ?? ""
+        cell.tag = indexPath.row
+        
+        return cell
+    }
+    
+    /// 画面遷移ポイント
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        repositoryIndex = indexPath.row
+        performSegue(withIdentifier: "Detail", sender: self)
+    }
+    
+}
+
+// MARK: UISearchBarDelegate
+
+extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         searchWord = searchBar.text!
         
         if searchWord.count != 0 {
@@ -54,41 +80,18 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                     }
                 }
             }
-        // これ呼ばなきゃリストが更新されません
         task?.resume()
         }
-        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "Detail"{
-            let detailDt = segue.destination as! DetailViewController
-            detailDt.searchVC = self
-        }
-        
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        task?.cancel()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositoryList.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell()
-        let assignedRepository = repositoryList[indexPath.row]
-        cell.textLabel?.text = assignedRepository["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = assignedRepository["language"] as? String ?? ""
-        cell.tag = indexPath.row
-        return cell
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 画面遷移時に呼ばれる
-        repositoryIndex = indexPath.row
-        performSegue(withIdentifier: "Detail", sender: self)
-        
+    /// 初期のテキスト削除
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.text = ""
+        return true
     }
     
 }
