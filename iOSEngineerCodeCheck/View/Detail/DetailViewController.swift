@@ -43,7 +43,7 @@ final class DetailViewController: UIViewController {
         titleLabel.text = textList["full_name"] as? String ?? "タイトルなし"
         languageLabel.text = "Written in \(textList["language"] as? String ?? "")"
         starsLabel.text = "\(textList["stargazers_count"] as? Int ?? 0) stars"
-        watchersLabel.text = "\(textList["wachers_count"] as? Int ?? 0) watchers"
+        watchersLabel.text = "\(textList["watchers_count"] as? Int ?? 0) watchers"
         forksLabel.text = "\(textList["forks_count"] as? Int ?? 0) forks"
         issuesLabel.text = "\(textList["open_issues_count"] as? Int ?? 0) open issues"
     }

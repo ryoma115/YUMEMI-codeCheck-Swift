@@ -89,7 +89,7 @@ extension SearchViewController: UISearchBarDelegate {
                 guard let data = data else { return }
                 if let obj = try! JSONSerialization.jsonObject(with: data) as? [String: Any] {
                     if let items = obj["items"] as? [[String: Any]] {
-                    self.repositoryList = items
+                        self.repositoryList = items
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
