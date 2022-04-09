@@ -21,9 +21,9 @@ final class SearchViewController: UITableViewController {
     
     var repositoryList: [[String: Any]] = []
     var task: URLSessionTask?
-    var searchWord: String!
-    var baseAPIUrl: String!
-    var repositoryIndex: Int!
+    let searchWord: String = ""
+    var baseAPIUrl: String = ""
+    var repositoryIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +46,8 @@ final class SearchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let assignedRepository = repositoryList[indexPath.row]
-        cell.textLabel?.text = assignedRepository["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = assignedRepository["language"] as? String ?? ""
+        cell.textLabel?.text = assignedRepository["full_name"] as? String
+        cell.detailTextLabel?.text = assignedRepository["language"] as? String
         cell.tag = indexPath.row
         
         return cell
@@ -66,12 +66,13 @@ final class SearchViewController: UITableViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchWord = searchBar.text!
-        
+        guard let searchWord = searchBar.text else { return }
         if searchWord.count != 0 {
-            baseAPIUrl = "https://api.github.com/search/repositories?q=\(searchWord!)"
-            task = URLSession.shared.dataTask(with: URL(string: baseAPIUrl)!) { (data, res, err) in
-                if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
+            baseAPIUrl = "https://api.github.com/search/repositories?q=\(searchWord)"
+            guard let changedURL = URL(string: baseAPIUrl) else { return }
+            task = URLSession.shared.dataTask(with: changedURL) { (data, res, err) in
+                guard let data = data else { return }
+                if let obj = try! JSONSerialization.jsonObject(with: data) as? [String: Any] {
                     if let items = obj["items"] as? [[String: Any]] {
                     self.repositoryList = items
                         DispatchQueue.main.async {
