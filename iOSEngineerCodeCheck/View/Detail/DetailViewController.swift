@@ -33,6 +33,12 @@ final class DetailViewController: UIViewController {
         setUpText(textList: specifiedRepository)
     }
     
+// MARK: IBAction
+    
+    @IBAction func tapBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     private func setUpText(textList: [String : Any]) {
         titleLabel.text = textList["full_name"] as? String ?? "タイトルなし"
         languageLabel.text = "Written in \(textList["language"] as? String ?? "")"
