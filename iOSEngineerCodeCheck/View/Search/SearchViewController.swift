@@ -8,14 +8,20 @@
 
 import UIKit
 
-final class SearchViewController: UITableViewController {
+final class SearchViewController: UIViewController {
 
 // MARK: IBOutlet
-    
+        
     @IBOutlet private weak var searchBar: UISearchBar! {
         didSet{
-            searchBar.text = "GitHubのリポジトリを検索できるよー"
+            searchBar.text = "GitHubのリポジトリを検索できるよ"
             searchBar.delegate = self
+        }
+    }
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
         }
     }
     
@@ -37,14 +43,18 @@ final class SearchViewController: UITableViewController {
         }
     }
     
-// MARK: tableView
+}
+
+// MARK: UITableViewDelegate,UITableViewDataSource
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositoryList.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
         let assignedRepository = repositoryList[indexPath.row]
         cell.textLabel?.text = assignedRepository["full_name"] as? String
         cell.detailTextLabel?.text = assignedRepository["language"] as? String
@@ -53,10 +63,15 @@ final class SearchViewController: UITableViewController {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+    
     /// 画面遷移ポイント
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         repositoryIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
