@@ -17,6 +17,9 @@ final class DetailViewController: UIViewController {
             showRepositoryImage()
         }
     }
+    
+    @IBOutlet private weak var topStackView: UIStackView!
+    @IBOutlet weak var leftStackView: UIStackView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var languageLabel: UILabel!
     @IBOutlet private weak var starsLabel: UILabel!
@@ -32,15 +35,28 @@ final class DetailViewController: UIViewController {
         
         let specifiedRepository = searchVC.repositoryList[searchVC.repositoryIndex]
         setUpText(textList: specifiedRepository)
+        setUpDesign()
     }
     
     private func setUpText(textList: [String : Any]) {
         titleLabel.text = textList["full_name"] as? String ?? "タイトルなし"
-        languageLabel.text = "Written in \(textList["language"] as? String ?? "")"
-        starsLabel.text = "\(textList["stargazers_count"] as? Int ?? 0) stars"
-        watchersLabel.text = "\(textList["watchers_count"] as? Int ?? 0) watchers"
-        forksLabel.text = "\(textList["forks_count"] as? Int ?? 0) forks"
-        issuesLabel.text = "\(textList["open_issues_count"] as? Int ?? 0) open issues"
+        languageLabel.text = textList["language"] as? String ?? "登録なし"
+        starsLabel.text = "\(textList["stargazers_count"] as? Int ?? 0)"
+        watchersLabel.text = "\(textList["watchers_count"] as? Int ?? 0)"
+        forksLabel.text = "\(textList["forks_count"] as? Int ?? 0)"
+        issuesLabel.text = "\(textList["open_issues_count"] as? Int ?? 0)"
+    }
+    
+    private func setUpDesign() {
+        repositoryImageView.layer.cornerRadius = 10.0
+        topStackView.layer.borderWidth = 1.0
+        topStackView.layer.cornerRadius = 10.0
+        topStackView.layer.borderColor = UIColor.black.cgColor
+        leftStackView.backgroundColor = UIColor.systemGray5
+        leftStackView.layer.cornerRadius = 10.0
+        leftStackView.layer.borderWidth = 1.0
+        leftStackView.layer.borderColor = UIColor.black.cgColor
+        
     }
     
     private func showRepositoryImage() {

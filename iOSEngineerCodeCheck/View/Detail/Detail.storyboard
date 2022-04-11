@@ -17,51 +17,163 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gMX-op-mdv">
-                                <rect key="frame" x="20" y="129" width="335" height="335"/>
+                                <rect key="frame" x="40" y="94.5" width="295" height="295"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="gMX-op-mdv" secondAttribute="height" multiplier="1:1" id="eLP-HX-Enf"/>
+                                    <constraint firstAttribute="width" secondItem="gMX-op-mdv" secondAttribute="height" multiplier="1:1" id="lxZ-7H-pGs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZT-lA-LoP">
-                                <rect key="frame" x="10" y="494" width="355" height="30"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" systemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZT-lA-LoP">
+                                <rect key="frame" x="10" y="419.5" width="355" height="28"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Title">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                            <font key="NSFont" size="24" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dro-CB-wI8">
-                                <rect key="frame" x="30" y="554" width="315" height="106"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfW-jx-n56">
+                                <rect key="frame" x="30" y="467.5" width="315" height="142"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11a-Yu-ivQ">
-                                        <rect key="frame" x="0.0" y="44.5" width="66.5" height="17"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <color key="textColor" systemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WCE-Bb-HPB">
-                                        <rect key="frame" x="261.5" y="0.0" width="53.5" height="106"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JWW-Pj-ShJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="142"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztt-xx-u7O">
-                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                <color key="textColor" systemColor="darkTextColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3Z-o2-yl6">
+                                                <rect key="frame" x="29" y="0.0" width="100" height="18"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Written in:">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W6"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wathcers" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-NM-i7q">
-                                                <rect key="frame" x="0.0" y="30.5" width="53.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                <color key="textColor" systemColor="darkTextColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nx7-R9-aSH">
+                                                <rect key="frame" x="55.5" y="28" width="47" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Stars:">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forks" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsd-ji-1Td">
-                                                <rect key="frame" x="0.0" y="61" width="53.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                <color key="textColor" systemColor="darkTextColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPT-fx-QSp">
+                                                <rect key="frame" x="38.5" y="59" width="81" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Wathcers:">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issues" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dq-q0-c6T">
-                                                <rect key="frame" x="0.0" y="91.5" width="53.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                <color key="textColor" systemColor="darkTextColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYM-RT-FBX">
+                                                <rect key="frame" x="53.5" y="90" width="50.5" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Forks:">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNR-JH-rij">
+                                                <rect key="frame" x="50.5" y="121" width="56.5" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Issues:">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WCE-Bb-HPB">
+                                        <rect key="frame" x="157.5" y="0.0" width="157.5" height="142"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11a-Yu-ivQ">
+                                                <rect key="frame" x="31" y="0.0" width="95.5" height="18"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Language">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W6"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztt-xx-u7O">
+                                                <rect key="frame" x="58" y="28" width="42" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Stars">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-NM-i7q">
+                                                <rect key="frame" x="41" y="59" width="76" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Wathcers">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsd-ji-1Td">
+                                                <rect key="frame" x="56.5" y="90" width="45" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Forks">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dq-q0-c6T">
+                                                <rect key="frame" x="53" y="121" width="51.5" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Issues">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="18" name="HiraginoSans-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -72,15 +184,16 @@
                         <viewLayoutGuide key="safeArea" id="WGl-Xn-Tfr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gMX-op-mdv" firstAttribute="top" secondItem="WGl-Xn-Tfr" secondAttribute="top" constant="85" id="7NU-Tr-3yG"/>
-                            <constraint firstItem="Dro-CB-wI8" firstAttribute="leading" secondItem="WGl-Xn-Tfr" secondAttribute="leading" constant="30" id="FB7-0X-HLd"/>
-                            <constraint firstItem="WGl-Xn-Tfr" firstAttribute="trailing" secondItem="gMX-op-mdv" secondAttribute="trailing" constant="20" id="Fma-tc-xll"/>
-                            <constraint firstItem="WGl-Xn-Tfr" firstAttribute="trailing" secondItem="Dro-CB-wI8" secondAttribute="trailing" constant="30" id="G9S-6L-Zty"/>
-                            <constraint firstItem="RZT-lA-LoP" firstAttribute="top" secondItem="gMX-op-mdv" secondAttribute="bottom" constant="30" id="Vci-t1-wtI"/>
-                            <constraint firstItem="RZT-lA-LoP" firstAttribute="leading" secondItem="WGl-Xn-Tfr" secondAttribute="leading" constant="10" id="XZl-sQ-3Uu"/>
-                            <constraint firstItem="Dro-CB-wI8" firstAttribute="top" secondItem="RZT-lA-LoP" secondAttribute="bottom" constant="30" id="gkT-LA-x8G"/>
-                            <constraint firstItem="gMX-op-mdv" firstAttribute="leading" secondItem="WGl-Xn-Tfr" secondAttribute="leading" constant="20" id="nbE-kZ-tZe"/>
-                            <constraint firstItem="WGl-Xn-Tfr" firstAttribute="trailing" secondItem="RZT-lA-LoP" secondAttribute="trailing" constant="10" id="qFV-fk-prx"/>
+                            <constraint firstItem="CfW-jx-n56" firstAttribute="leading" secondItem="WGl-Xn-Tfr" secondAttribute="leading" constant="30" id="2o8-Km-KFY"/>
+                            <constraint firstItem="RZT-lA-LoP" firstAttribute="centerX" secondItem="0k6-MY-4Dg" secondAttribute="centerX" id="CfB-oJ-meo"/>
+                            <constraint firstItem="RZT-lA-LoP" firstAttribute="top" secondItem="gMX-op-mdv" secondAttribute="bottom" constant="30" id="EVA-zU-KFp"/>
+                            <constraint firstItem="CfW-jx-n56" firstAttribute="top" secondItem="RZT-lA-LoP" secondAttribute="bottom" constant="20" id="K2e-AZ-STt"/>
+                            <constraint firstItem="WGl-Xn-Tfr" firstAttribute="trailing" secondItem="gMX-op-mdv" secondAttribute="trailing" constant="40" id="MG8-dg-Ovm"/>
+                            <constraint firstItem="gMX-op-mdv" firstAttribute="leading" secondItem="WGl-Xn-Tfr" secondAttribute="leading" constant="40" id="W4N-74-Wbd"/>
+                            <constraint firstItem="RZT-lA-LoP" firstAttribute="centerY" secondItem="0k6-MY-4Dg" secondAttribute="centerY" constant="100" id="e21-v6-Iig"/>
+                            <constraint firstItem="RZT-lA-LoP" firstAttribute="leading" secondItem="WGl-Xn-Tfr" secondAttribute="leading" constant="10" id="miJ-e7-NpQ"/>
+                            <constraint firstItem="WGl-Xn-Tfr" firstAttribute="trailing" secondItem="CfW-jx-n56" secondAttribute="trailing" constant="30" id="pAW-T1-sTa"/>
+                            <constraint firstItem="WGl-Xn-Tfr" firstAttribute="trailing" secondItem="RZT-lA-LoP" secondAttribute="trailing" constant="10" id="uqj-iM-xIb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uvH-O3-pA2"/>
@@ -88,9 +201,11 @@
                         <outlet property="forksLabel" destination="hsd-ji-1Td" id="lp5-rx-EfM"/>
                         <outlet property="issuesLabel" destination="1dq-q0-c6T" id="rOH-64-GIE"/>
                         <outlet property="languageLabel" destination="11a-Yu-ivQ" id="KpD-Md-Pxd"/>
+                        <outlet property="leftStackView" destination="JWW-Pj-ShJ" id="CD8-dj-Vyx"/>
                         <outlet property="repositoryImageView" destination="gMX-op-mdv" id="AfT-BZ-nPZ"/>
                         <outlet property="starsLabel" destination="Ztt-xx-u7O" id="1ia-7Y-aiB"/>
                         <outlet property="titleLabel" destination="RZT-lA-LoP" id="XPw-la-onO"/>
+                        <outlet property="topStackView" destination="CfW-jx-n56" id="dHt-Xr-5dZ"/>
                         <outlet property="watchersLabel" destination="LAC-NM-i7q" id="Jax-mD-WYO"/>
                     </connections>
                 </viewController>
