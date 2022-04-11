@@ -35,12 +35,12 @@ final class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail" {
-            let detailDt = segue.destination as! DetailViewController
-            detailDt.searchVC = self
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "Detail" {
+//            let detailDt = segue.destination as! DetailViewController
+//            detailDt.searchVC = self
+//        }
+//    }
     
 }
 
@@ -69,8 +69,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     /// 画面遷移ポイント
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         repositoryIndex = indexPath.row
-        performSegue(withIdentifier: "Detail", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        viewController.searchVC = self
+        self.navigationController?.pushViewController(viewController, animated: false)
     }
     
 }
