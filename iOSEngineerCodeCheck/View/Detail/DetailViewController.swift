@@ -25,6 +25,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var issuesLabel: UILabel!
     
     var searchVC = SearchViewController()
+    private let viewModel = DetailViewModel()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,19 +51,11 @@ final class DetailViewController: UIViewController {
     
     private func showRepositoryImage() {
         let specifiedRepository = searchVC.repositoryList[searchVC.repositoryIndex]
-        
-        if let owner = specifiedRepository["owner"] as? [String: Any] {
-            if let imgURL = owner["avatar_url"] as? String {
-                guard let changedURL = URL(string: imgURL) else { return }
-                URLSession.shared.dataTask(with: changedURL) { (data, res, err) in
-                    guard let data = data else { return }
-                    guard let dataImage = UIImage(data: data) else { return }
-                    DispatchQueue.main.async {
-                        self.repositoryImageView.image = dataImage
-                    }
-                }.resume()
+        viewModel.changedImage(repositoryData: specifiedRepository) { imageData in
+            guard let imageView = UIImage(data: imageData) else { return }
+            DispatchQueue.main.async {
+                self.repositoryImageView.image = imageView
             }
         }
     }
-    
 }

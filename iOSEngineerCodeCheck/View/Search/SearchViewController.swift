@@ -26,10 +26,9 @@ final class SearchViewController: UIViewController {
     }
     
     var repositoryList: [[String: Any]] = []
-    var task: URLSessionTask?
-    let searchWord: String = ""
-    var baseAPIUrl: String = ""
     var repositoryIndex: Int = 0
+    
+    private let viewModel = SearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,25 +82,24 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchWord = searchBar.text else { return }
         if searchWord.count != 0 {
-            baseAPIUrl = "https://api.github.com/search/repositories?q=\(searchWord)"
-            guard let changedURL = URL(string: baseAPIUrl) else { return }
-            task = URLSession.shared.dataTask(with: changedURL) { (data, res, err) in
-                guard let data = data else { return }
-                if let obj = try! JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                    if let items = obj["items"] as? [[String: Any]] {
-                        self.repositoryList = items
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
+            viewModel.featchRepositoryData(searchWord: searchWord) { response in
+                switch response {
+                case .urlError:
+                    searchBar.text = "URLの取得に失敗しました"
+                case .dataError:
+                    searchBar.text = "データの取得に失敗しました"
+                case .success:
+                    self.repositoryList = self.viewModel.dataSets
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
                 }
             }
-        task?.resume()
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
+        viewModel.fetchCancel()
     }
     
     /// 初期のテキスト削除
