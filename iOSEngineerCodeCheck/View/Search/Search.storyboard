@@ -68,7 +68,6 @@
                     <connections>
                         <outlet property="searchBar" destination="AOr-SD-5Xz" id="FBv-al-Y7O"/>
                         <outlet property="tableView" destination="t1G-j3-Zlh" id="3yL-8Y-1k1"/>
-                        <segue destination="jnj-id-4Uh" kind="presentation" identifier="Detail" modalPresentationStyle="fullScreen" id="TsT-fm-kzj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHs-FW-Gs1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
