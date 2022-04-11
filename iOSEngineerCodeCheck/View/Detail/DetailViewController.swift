@@ -10,7 +10,7 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     
-    // MARK: IBOutlet
+// MARK: IBOutlet
     
     @IBOutlet private weak var repositoryImageView: UIImageView! {
         didSet {
@@ -27,15 +27,25 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var forksLabel: UILabel!
     @IBOutlet private weak var issuesLabel: UILabel!
     
+    var webOpenButton: UIBarButtonItem!
     var searchVC = SearchViewController()
     private let viewModel = DetailViewModel()
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        webOpenButton = UIBarButtonItem(title: "このリポジトリを開く", style: .done, target: self, action: #selector(openButtonTapped(_:)))
+        self.navigationItem.rightBarButtonItem = webOpenButton
         let specifiedRepository = searchVC.repositoryList[searchVC.repositoryIndex]
         setUpText(textList: specifiedRepository)
         setUpDesign()
+    }
+    
+    @objc func openButtonTapped(_ sender: UIBarButtonItem) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Web", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
+        let specifiedRepository = searchVC.repositoryList[searchVC.repositoryIndex]
+        viewController.repositoryUrl = specifiedRepository["html_url"] as? String
+        self.navigationController?.pushViewController(viewController, animated: false)
     }
     
     private func setUpText(textList: [String : Any]) {
@@ -56,7 +66,6 @@ final class DetailViewController: UIViewController {
         leftStackView.layer.cornerRadius = 10.0
         leftStackView.layer.borderWidth = 1.0
         leftStackView.layer.borderColor = UIColor.black.cgColor
-        
     }
     
     private func showRepositoryImage() {
@@ -68,4 +77,5 @@ final class DetailViewController: UIViewController {
             }
         }
     }
+    
 }

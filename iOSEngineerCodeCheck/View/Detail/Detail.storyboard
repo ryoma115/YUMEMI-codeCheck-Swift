@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
+        <!--詳細-->
         <scene sceneID="yBv-3z-MOB">
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fFJ-cy-hRi" customClass="DetailViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
@@ -196,7 +196,7 @@
                             <constraint firstItem="WGl-Xn-Tfr" firstAttribute="trailing" secondItem="RZT-lA-LoP" secondAttribute="trailing" constant="10" id="uqj-iM-xIb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uvH-O3-pA2"/>
+                    <navigationItem key="navigationItem" title="詳細" id="uvH-O3-pA2"/>
                     <connections>
                         <outlet property="forksLabel" destination="hsd-ji-1Td" id="lp5-rx-EfM"/>
                         <outlet property="issuesLabel" destination="1dq-q0-c6T" id="rOH-64-GIE"/>
