@@ -35,13 +35,6 @@ final class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "Detail" {
-//            let detailDt = segue.destination as! DetailViewController
-//            detailDt.searchVC = self
-//        }
-//    }
-    
 }
 
 // MARK: UITableViewDelegate,UITableViewDataSource
