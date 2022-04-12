@@ -10,33 +10,29 @@ import UIKit
 
 final class SearchViewModel {
     
-    enum featchRepositoryResponse {
-        case urlError
-        case dataError
+    enum fetchResult {
+        case failure(String)
         case success
     }
     
     var dataSets: [[String: Any]] = []
-    var task: URLSessionTask?
-    let searchWord: String = ""
-    var baseAPIUrl: String = ""
+    private let api = API()
     
-    func featchRepositoryData(searchWord: String,completion: @escaping (featchRepositoryResponse) -> ()) {
-        baseAPIUrl = "https://api.github.com/search/repositories?q=\(searchWord)"
-        guard let changedURL = URL(string: baseAPIUrl) else { completion(.urlError); return }
-        task = URLSession.shared.dataTask(with: changedURL) { (data, res, err) in
-            guard let data = data else { completion(.dataError); return }
-            if let obj = try! JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                if let items = obj["items"] as? [[String: Any]] {
-                    self.dataSets = items
-                    completion(.success)
-                }
+    func fetcher(searchWord: String,completion: @escaping (fetchResult) -> ()) {
+        api.fetchRepositoryData(searchWord: searchWord) { response in
+            switch response {
+            case .urlError:
+                completion(.failure("URLの取得に失敗しました"))
+            case .dataError:
+                completion(.failure("データの取得に失敗しました"))
+            case .success(let items):
+                self.dataSets = items
+                completion(.success)
             }
         }
-        task?.resume()
     }
     
-    func fetchCancel() {
-        task?.cancel()
+    func fetcherCancel() {
+        api.featchCancel()
     }
 }

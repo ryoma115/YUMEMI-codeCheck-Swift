@@ -78,24 +78,23 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchWord = searchBar.text else { return }
         if searchWord.count != 0 {
-            viewModel.featchRepositoryData(searchWord: searchWord) { response in
-                switch response {
-                case .urlError:
-                    searchBar.text = "URLの取得に失敗しました"
-                case .dataError:
-                    searchBar.text = "データの取得に失敗しました"
+            viewModel.fetcher(searchWord: searchWord) { result in
+                switch result {
+                case .failure(let warningText):
+                    searchBar.text = warningText
                 case .success:
                     self.repositoryList = self.viewModel.dataSets
+                    print(self.repositoryList)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
-                    }
+                    }       
                 }
             }
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.fetchCancel()
+        viewModel.fetcherCancel()
     }
     
     /// 初期のテキスト削除
@@ -104,6 +103,7 @@ extension SearchViewController: UISearchBarDelegate {
         return true
     }
     
+    /// 文字制限255
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let maxLength: Int = 255
         let searchStr = searchBar.text ?? "" + text
