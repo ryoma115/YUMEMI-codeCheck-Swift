@@ -14,6 +14,7 @@
 		5E8058FE28048BE000CBB170 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E8058FD28048BE000CBB170 /* Web.storyboard */; };
 		5E80590028048C1100CBB170 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8058FF28048C1100CBB170 /* WebViewController.swift */; };
 		5E80590228048CAB00CBB170 /* webViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E80590128048CAB00CBB170 /* webViewModel.swift */; };
+		5E8059092805938100CBB170 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8059082805938100CBB170 /* API.swift */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
 		BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 		5E8058FD28048BE000CBB170 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
 		5E8058FF28048C1100CBB170 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5E80590128048CAB00CBB170 /* webViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webViewModel.swift; sourceTree = "<group>"; };
+		5E8059082805938100CBB170 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD945DE244DC5E80012785A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		5E8058E42800647700CBB170 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5E8059082805938100CBB170 /* API.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				5E80590028048C1100CBB170 /* WebViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
+				5E8059092805938100CBB170 /* API.swift in Sources */,
 				5E80590228048CAB00CBB170 /* webViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
