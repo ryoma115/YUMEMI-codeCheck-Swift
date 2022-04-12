@@ -104,4 +104,14 @@ extension SearchViewController: UISearchBarDelegate {
         return true
     }
     
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let maxLength: Int = 255
+        let searchStr = searchBar.text ?? "" + text
+        if searchStr.count >= maxLength {
+            print(searchStr.count)
+            return false
+        }
+        return true
+    }
+    
 }
