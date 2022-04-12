@@ -62,7 +62,7 @@ final class DetailViewController: UIViewController {
         topStackView.layer.borderWidth = 1.0
         topStackView.layer.cornerRadius = 10.0
         topStackView.layer.borderColor = UIColor.black.cgColor
-        leftStackView.backgroundColor = UIColor.systemGray5
+        leftStackView.backgroundColor = UIColor.systemGray6
         leftStackView.layer.cornerRadius = 10.0
         leftStackView.layer.borderWidth = 1.0
         leftStackView.layer.borderColor = UIColor.black.cgColor
