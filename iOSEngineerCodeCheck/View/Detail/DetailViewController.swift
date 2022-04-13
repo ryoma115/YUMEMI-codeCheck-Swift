@@ -70,10 +70,18 @@ final class DetailViewController: UIViewController {
     
     private func showRepositoryImage() {
         let specifiedRepository = searchVC.repositoryList[searchVC.repositoryIndex]
-        viewModel.changedImage(repositoryData: specifiedRepository) { imageData in
-            guard let imageView = UIImage(data: imageData) else { return }
-            DispatchQueue.main.async {
-                self.repositoryImageView.image = imageView
+        viewModel.changedImage(repositoryData: specifiedRepository) { result in
+            switch result {
+            case .failure:
+                let imageView = UIImage(named: "noImage")
+                DispatchQueue.main.async {
+                    self.repositoryImageView.image = imageView
+                }
+            case .success(let imageData):
+                guard let imageView = UIImage(data: imageData) else { return }
+                DispatchQueue.main.async {
+                    self.repositoryImageView.image = imageView
+                }
             }
         }
     }

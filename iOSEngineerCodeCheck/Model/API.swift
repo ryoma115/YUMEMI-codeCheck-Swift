@@ -10,7 +10,7 @@ import UIKit
 
 final class API {
     
-    enum fetchRepositoryResponse {
+    enum FetchRepositoryResponse {
         case urlError
         case dataError
         case success([[String: Any]])
@@ -19,7 +19,7 @@ final class API {
     var task: URLSessionTask?
     var baseAPIUrl: String = ""
     
-    func fetchRepositoryData(searchWord: String,completion: @escaping (fetchRepositoryResponse) -> ()) {
+    func fetchRepositoryData(searchWord: String,completion: @escaping (FetchRepositoryResponse) -> ()) {
         baseAPIUrl = "https://api.github.com/search/repositories?q=\(searchWord)"
         guard let changedURL = URL(string: baseAPIUrl) else { completion(.urlError); return }
         task = URLSession.shared.dataTask(with: changedURL) { (data, res, err) in
