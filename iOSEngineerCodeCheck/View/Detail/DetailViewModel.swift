@@ -10,14 +10,22 @@ import UIKit
 
 final class DetailViewModel {
     
-    func changedImage(repositoryData: [String : Any],completion: @escaping (Data) -> ()) {
-        if let owner = repositoryData["owner"] as? [String: Any] {
-            if let imgURL = owner["avatar_url"] as? String {
-                guard let changedURL = URL(string: imgURL) else { return }
-                URLSession.shared.dataTask(with: changedURL) { (data, res, err) in
-                    guard let imageData = data else { return }
-                    completion(imageData)
-                }.resume()
+    enum DownloadResult {
+        case failure
+        case success(Data)
+    }
+    
+    private let imageDownloader = ImageDownloader()
+    
+    func changedImage(repositoryData: [String : Any],completion: @escaping (DownloadResult) -> ()) {
+        imageDownloader.downloadImage(repositoryData: repositoryData) { response in
+            switch response {
+            case .urlError:
+                completion(.failure)
+            case .dataError:
+                completion(.failure)
+            case .success(let data):
+                completion(.success(data))
             }
         }
     }
